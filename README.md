@@ -1,5 +1,15 @@
 # pytree - A Rich Tree API Implemented in Python
+<!-- TOC start -->
+- [Binary Tree API](#binary-tree-api)
+  * [Build a binary tree](#build-a-binary-tree)
+  * [Traversal a binary tree](#traversal-a-binary-tree)
+  * [Check binary tree properties](#check-binary-tree-properties)
+  * [Build binary tree from traversal orders](#build-binary-tree-from-traversal-orders)
+<!-- TOC end -->
+<!-- TOC --><a name="binary-tree-api"></a>
+## Binary Tree API
 
+<!-- TOC --><a name="build-a-binary-tree"></a>
 ### Build a binary tree
 ```python
 from tree.BinaryTree import BinaryTree
@@ -22,6 +32,7 @@ tree.pprint()
 3 4 5 6
 ```
 
+<!-- TOC --><a name="traversal-a-binary-tree"></a>
 ### Traversal a binary tree
 ```python
 for node in tree.preorder():
@@ -58,6 +69,7 @@ for node in tree.postorder():
 0 | BinaryTreeNode(0, left=1, right=2)
 ```
 
+<!-- TOC --><a name="check-binary-tree-properties"></a>
 ### Check binary tree properties
 ```python
 print('Tree Height  : ', tree.height())
@@ -74,6 +86,7 @@ Is BST       :  False
 Is Symmetric :  False
 ```
 
+<!-- TOC --><a name="build-binary-tree-from-traversal-orders"></a>
 ### Build binary tree from traversal orders
 ```python
 tree = BinaryTree.initFromPreorderAndInorder([1, 2, 3], [2, 1, 3])
