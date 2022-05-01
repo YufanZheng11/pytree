@@ -1,5 +1,5 @@
 from tree.TreeUtils import (
-    preorder, inorder, postorder, getBinaryTreeHeight, isBinaryTreeBalanced, getNumLeaves, isSameTree, isSubTreeOf,
+    preorder, inorder, postorder, getBinaryTreeHeight, isBinaryTreeBalanced, getNumberLeaves, isSameTree, isSubTreeOf,
     pathToNode
 )
 
@@ -20,7 +20,7 @@ class BinaryTreeTraversalMixin:
 
 
 class BinaryTreePropertiesMixin:
-    def height(self):
+    def getHeight(self):
         """" Get Tree Height """
         return getBinaryTreeHeight(self.root)
 
@@ -28,9 +28,9 @@ class BinaryTreePropertiesMixin:
         """ Check if a binary tree is balanced """
         return isBinaryTreeBalanced(self.root)
 
-    def getNumLeaves(self):
+    def getNumberLeaves(self):
         """ Get number of leaves of a binary tree """
-        return getNumLeaves(self.root)
+        return getNumberLeaves(self.root)
 
 
 class BinaryTreeCompareMixin:

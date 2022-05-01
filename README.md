@@ -43,19 +43,20 @@ tree.pprint()
 ```
 
 **View binary tree properties**
+
 ```python
-print('Tree Height  :', tree.height())
-print('Num Leaves   :', tree.getNumLeaves())
-print('Is Balanced  :', tree.isBalanced())
-print('Is BST       :', tree.isBinarySearchTree())
-print('Is Symmetric :', tree.isSymmetric())
+print('Tree Height   : ', tree.getHeight())
+print('Number Leaves : ', tree.getNumberLeaves())
+print('Is Balanced   : ', tree.isBalanced())
+print('Is BST        : ', tree.isBinarySearchTree())
+print('Is Symmetric  : ', tree.isSymmetric())
 ```
 ```
-Tree Height  : 3
-Num Leaves   : 4
-Is Balanced  : True
-Is BST       : False
-Is Symmetric : False
+Tree Height   :  3
+Number Leaves :  4
+Is Balanced   :  True
+Is BST        :  False
+Is Symmetric  :  False
 ```
 **Compare 2 binary tree**
 ```python

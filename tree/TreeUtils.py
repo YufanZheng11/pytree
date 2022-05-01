@@ -101,14 +101,14 @@ def isBinaryTreeBalanced(root):
     return False
 
 
-def getNumLeaves(root):
+def getNumberLeaves(root):
     """ Get number of leaves """
     if root is None:
         return 0
     elif root.left is None and root.right is None:
         return 1
     else:
-        return getNumLeaves(root.left) + getNumLeaves(root.right)
+        return getNumberLeaves(root.left) + getNumberLeaves(root.right)
 
 
 def isBinarySearchTree(root):
