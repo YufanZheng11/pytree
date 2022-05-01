@@ -63,11 +63,11 @@ tree_a = BinaryTree(root=a)
 tree_b = BinaryTree(root=b)
 
 print("a and b are same tree? :", tree_a.isSameTree(tree_b))
-print("a is subtree of  b?    :", tree_a.isSubTreeOf(tree_b))
-print("b is subtree of  a?    :", tree_b.isSubTreeOf(tree_a))
+print("a is subtree of b?     :", tree_a.isSubTreeOf(tree_b))
+print("b is subtree of a?     :", tree_b.isSubTreeOf(tree_a))
 ```
 ```
 a and b are same tree? : False
-a is subtree of  b?    : False
-b is subtree of  a?    : True
+a is subtree of b?     : False
+b is subtree of a?     : True
 ```
