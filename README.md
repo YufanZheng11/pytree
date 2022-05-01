@@ -12,9 +12,9 @@
 | **Trie**                              | :boom: Not Started |
 
 ## Binary Tree APIs
-**[Full Doc & Code Snippets](docs/BinaryTree.md)**
 
-### Sample Usage
+### Sample Usage **[Full Doc & Code Snippets](docs/BinaryTree.md)**
+**Construct a binary Tree**
 ```python
 from tree.BinaryTree import BinaryTree
 from node.BinaryTreeNode import BinaryTreeNode
@@ -27,10 +27,11 @@ c.left, c.right = f, g
 tree = BinaryTree(root=a)
 ```
 
-### Pretty print a binary tree
+**Pretty print a binary tree**
 ```python
 tree.pprint()
 ```
+
 ```
   _0_  
  /   \ 
@@ -38,6 +39,8 @@ tree.pprint()
 / \ / \
 3 4 5 6
 ```
+
+**View binary tree properties**
 ```python
 print('Tree Height  : ', tree.height())
 print('Num Leaves   : ', tree.getNumLeaves())
@@ -52,7 +55,7 @@ Is Balanced  :  True
 Is BST       :  False
 Is Symmetric :  False
 ```
-
+**Compare 2 binary tree**
 ```python
 tree_a = BinaryTree(root=a)
 tree_b = BinaryTree(root=b)
