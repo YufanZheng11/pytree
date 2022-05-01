@@ -80,14 +80,14 @@ for node in tree.postorder():
 
 ### Check binary tree properties
 - Tree height
-- Is balanced
 - Number of leaves
+- Is balanced
 - Is binary search tree
 - is symmetric
 ```python
 print('Tree Height  : ', tree.height())
-print('Is Balanced  : ', tree.isBalanced())
 print('Num Leaves   : ', tree.getNumLeaves())
+print('Is Balanced  : ', tree.isBalanced())
 print('Is BST       : ', tree.isBinarySearchTree())
 print('Is Symmetric : ', tree.isSymmetric())
 ```
