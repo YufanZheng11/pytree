@@ -1,9 +1,9 @@
 from node.BinaryTreeNode import BinaryTreeNode
 from tree.TreeUtils import prettyBinaryTree, initFromPreorderAndInorder, initFromInorderAndPostorder, isBinarySearchTree, isSymmetric
-from tree.TreeMixins import BinaryTreeTraversalMixin, BinaryTreePropertiesMixin
+from tree.TreeMixins import BinaryTreeTraversalMixin, BinaryTreePropertiesMixin, BinaryTreeCompareMixin
 
 
-class BinaryTree(BinaryTreeTraversalMixin, BinaryTreePropertiesMixin):
+class BinaryTree(BinaryTreeTraversalMixin, BinaryTreePropertiesMixin, BinaryTreeCompareMixin):
 
     def __init__(self, root):
         if root is not None and not isinstance(root, BinaryTreeNode):

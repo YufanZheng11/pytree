@@ -111,6 +111,85 @@ def isSymmetric(root):
 
 
 # --------------------------------------------------------------------------------------------------------------
+#  Binary Tree Compare
+# --------------------------------------------------------------------------------------------------------------
+
+def isSameTree(a, b):
+    """ Check if 2 trees are same or not """
+    # 1. Both empty
+    if a is None and b is None:
+        return True
+
+    # 2. Both non-empty -> Compare them
+    if a is not None and b is not None:
+        return ((a.val == b.val) and
+                isSameTree(a.left, b.left) and
+                isSameTree(a.right, b.right))
+
+    # 3. one empty, one not -- false
+    return False
+
+
+def isSubTreeOf(subtree, tree):
+    """ Function to check if a given binary tree is a subtree of another binary tree or not """
+    # base case: both trees are the same
+    if tree == subtree:
+        return True
+
+    # base case: if the first tree is empty but the second tree is non-empty
+    if tree is None:
+        return False
+
+    # Function to store inorder traversal on the tree in a list
+    def inorder(node, vals):
+        if node is None:
+            return
+
+        inorder(node.left, vals)
+        vals.append(node.val)
+        inorder(node.right, vals)
+
+    # Function to store postorder traversal on the tree in a list
+    def postorder(node, vals):
+        if node is None:
+            return
+
+        postorder(node.left, vals)
+        postorder(node.right, vals)
+        vals.append(node.val)
+        
+    # store the inorder traversal of both trees in `first` and `second`, respectively
+    first = []
+    second = []
+
+    inorder(tree, first)
+    inorder(subtree, second)
+
+    def isSubList(x, y):
+        for i in range(len(x) - len(y) + 1):
+            if x[i: i + len(y)] == y:
+                return True
+        return False
+
+    # return false if the second list is not a sublist of the first list
+    if not isSubList(first, second):
+        return False
+
+    # reset both lists
+    first.clear()
+    second.clear()
+
+    # Now store postorder traversal of both trees in `first` and `second`, respectively
+    postorder(tree, first)
+    postorder(subtree, second)
+
+    # return false if the second list is not a sublist of the first list
+    if not isSubList(first, second):
+        return False
+
+    return True
+
+# --------------------------------------------------------------------------------------------------------------
 #  Binary Tree Pretty Formatter
 # --------------------------------------------------------------------------------------------------------------
 

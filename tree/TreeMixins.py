@@ -1,4 +1,4 @@
-from tree.TreeUtils import getBinaryTreeHeight, isBinaryTreeBalanced, getNumLeaves
+from tree.TreeUtils import getBinaryTreeHeight, isBinaryTreeBalanced, getNumLeaves, isSameTree, isSubTreeOf
 
 
 class BinaryTreeTraversalMixin:
@@ -43,3 +43,13 @@ class BinaryTreePropertiesMixin:
     def getNumLeaves(self):
         """ Get number of leaves of a binary tree """
         return getNumLeaves(self.root)
+
+
+class BinaryTreeCompareMixin:
+    def isSameTree(self, other):
+        """ Check if current tree is same as other """
+        return isSameTree(self.root, other.root)
+
+    def isSubTreeOf(self, other):
+        """ Check if current tree is subtree of other """
+        return isSubTreeOf(self.root, other.root)

@@ -81,6 +81,31 @@ Is BST       :  False
 Is Symmetric :  False
 ```
 
+### Compare 2 binary trees
+- Check if 2 binary trees are same
+- Checi if a binary is subtree of other
+```python
+from tree.BinaryTree import BinaryTree
+from node.BinaryTreeNode import BinaryTreeNode
+
+a, b, c, d, e, f, g = (BinaryTreeNode(i) for i in range(7))
+a.left, a.right = b, c
+b.left, b.right = d, e
+c.left, c.right = f, g
+
+tree_a = BinaryTree(root=a)
+tree_b = BinaryTree(root=b)
+
+print("a and b are same tree? :", tree_a.isSameTree(tree_b))
+print("a is subtree of  b?    :", tree_a.isSubTreeOf(tree_b))
+print("b is subtree of  a?    :", tree_b.isSubTreeOf(tree_a))
+```
+```
+a and b are same tree? : False
+a is subtree of  b?    : False
+b is subtree of  a?    : True
+```
+
 ### Build binary tree from traversal orders
 - From preorder & inorder
 - From inorder & postorder
