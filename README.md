@@ -1,5 +1,17 @@
 # pytree - A Rich Tree API Implemented in Python
 
+## Progress
+
+| Tree                   | Status             |
+|------------------------|--------------------|
+| **Binary Tree**        | :fire: In Progress |
+| **Binary Search Tree** | :boom: Not Started |
+| **N Ary Tree**         | :boom: Not Started |
+| **Segment Tree**       | :boom: Not Started |
+| **Interval Tree**      | :boom: Not Started |
+| **Trie**               | :boom: Not Started |
+
+
 ## Binary Tree API
 
 ### Build a binary tree
