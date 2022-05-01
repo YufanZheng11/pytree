@@ -80,6 +80,8 @@ def getNumLeaves(root):
     """ Get number of leaves """
     if root is None:
         return 0
+    elif root.left is None and root.right is None:
+        return 1
     else:
         return getNumLeaves(root.left) + getNumLeaves(root.right)
 
@@ -101,7 +103,7 @@ def isSymmetric(root):
         if root1 is None and root2 is None:
             return True
         if root1 is not None and root2 is not None:
-            if root1.key == root2.key:
+            if root1.val == root2.val:
                 return (isMirror(root1.left, root2.right) and
                         isMirror(root1.right, root2.left))
         return False
