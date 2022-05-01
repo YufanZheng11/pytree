@@ -54,11 +54,6 @@ class TestStringMethods(unittest.TestCase):
         b.left, b.right = d, e
         c.left, c.right = f, g
 
-        a, b, c, d, e, f, g = (BinaryTreeNode(i) for i in range(7))
-        a.left, a.right = b, c
-        b.left, b.right = d, e
-        c.left, c.right = f, g
-
         h = BinaryTreeNode(3)
         g.left = h
 
