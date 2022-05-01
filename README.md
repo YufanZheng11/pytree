@@ -88,6 +88,8 @@ Is Symmetric :  False
 ```
 
 ### Build binary tree from traversal orders
+- From preorder & inorder
+- From inorder & postorder
 ```python
 tree = BinaryTree.initFromPreorderAndInorder([1, 2, 3], [2, 1, 3])
 tree.pprint()
@@ -101,6 +103,7 @@ tree.pprint()
  1 
 / \
 2 3
+
 # From inorder & postorder
  _3
 /  
