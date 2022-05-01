@@ -1,4 +1,7 @@
-from tree.TreeUtils import preorder, inorder, postorder, getBinaryTreeHeight, isBinaryTreeBalanced, getNumLeaves, isSameTree, isSubTreeOf
+from tree.TreeUtils import (
+    preorder, inorder, postorder, getBinaryTreeHeight, isBinaryTreeBalanced, getNumLeaves, isSameTree, isSubTreeOf,
+    pathToNode
+)
 
 
 class BinaryTreeTraversalMixin:
@@ -38,3 +41,9 @@ class BinaryTreeCompareMixin:
     def isSubTreeOf(self, other):
         """ Check if current tree is subtree of other """
         return isSubTreeOf(self.root, other.root)
+
+
+class BinaryTreePathMixin:
+    def pathToNode(self, val):
+        """ Find all paths from root to a node with given node val """
+        yield from pathToNode(self.root, val)

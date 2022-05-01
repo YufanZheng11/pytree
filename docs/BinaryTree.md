@@ -116,3 +116,28 @@ tree.pprint()
  \ 
  2 
 ```
+
+### Find binary tree path
+- Find all paths from root to node
+```python
+from tree.BinaryTree import BinaryTree
+from node.BinaryTreeNode import BinaryTreeNode
+
+a, b, c, d, e, f, g = (BinaryTreeNode(i) for i in range(7))
+a.left, a.right = b, c
+b.left, b.right = d, e
+c.left, c.right = f, g
+
+h = BinaryTreeNode(3)
+g.left = h
+
+tree = BinaryTree(root=a)
+
+for path in tree.pathToNode(3):
+    print('->'.join(str(node.val) for node in path))
+```
+```
+# All path to node with given value 3
+0->1->3
+0->2->6->3
+```
