@@ -12,22 +12,57 @@
 | **Trie**                              | :boom: Not Started |
 
 ## Binary Tree APIs
-[Full Doc & Code Snippets](docs/BinaryTree.md)
+**[Full Doc & Code Snippets](docs/BinaryTree.md)**
 
-** Full Available APIs **
+### Sample Usage
+```python
+from tree.BinaryTree import BinaryTree
+from node.BinaryTreeNode import BinaryTreeNode
 
-| Category        | Function Name               |
-|:----------------|:----------------------------|
-| Pretty Print    | pprint                      |
-| Property        | getNumLeaves                |
-| Property        | height                      |
-| Property        | isBalanced                  |
-| Property        | isBinarySearchTree          |
-| Property        | isSameTree                  |
-| Compare 2 Trees | isSubTreeOf                 |
-| Compare 2 Trees | isSymmetric                 |
-| Traversal       | preorder                    |
-| Traversal       | inorder                     |
-| Traversal       | postorder                   |
-| Build Tree      | initFromInorderAndPostorder |
-| Build Tree      | initFromPreorderAndInorder  |
+a, b, c, d, e, f, g = (BinaryTreeNode(i) for i in range(7))
+a.left, a.right = b, c
+b.left, b.right = d, e
+c.left, c.right = f, g
+
+tree = BinaryTree(root=a)
+```
+
+### Pretty print a binary tree
+```python
+tree.pprint()
+```
+```
+  _0_  
+ /   \ 
+ 1   2 
+/ \ / \
+3 4 5 6
+```
+```python
+print('Tree Height  : ', tree.height())
+print('Num Leaves   : ', tree.getNumLeaves())
+print('Is Balanced  : ', tree.isBalanced())
+print('Is BST       : ', tree.isBinarySearchTree())
+print('Is Symmetric : ', tree.isSymmetric())
+```
+```
+Tree Height  :  3
+Num Leaves   :  4
+Is Balanced  :  True
+Is BST       :  False
+Is Symmetric :  False
+```
+
+```python
+tree_a = BinaryTree(root=a)
+tree_b = BinaryTree(root=b)
+
+print("a and b are same tree? :", tree_a.isSameTree(tree_b))
+print("a is subtree of  b?    :", tree_a.isSubTreeOf(tree_b))
+print("b is subtree of  a?    :", tree_b.isSubTreeOf(tree_a))
+```
+```
+a and b are same tree? : False
+a is subtree of  b?    : False
+b is subtree of  a?    : True
+```
