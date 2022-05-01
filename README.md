@@ -45,37 +45,19 @@ tree.pprint()
 - Post-order
 ```python
 for node in tree.preorder():
-    print(node.val, '|', node)
+    print(node.val, end=" ")
 for node in tree.inorder():
-    print(node.val, '|', node)
+    print(node.val, end=" ")
 for node in tree.postorder():
-    print(node.val, '|', node)
+    print(node.val, end=" ")
 ```
-```python
+```
 # preorder
-0 | BinaryTreeNode(0, left=1, right=2)
-1 | BinaryTreeNode(1, left=3, right=4)
-3 | BinaryTreeNode(3, left=None, right=None)
-4 | BinaryTreeNode(4, left=None, right=None)
-2 | BinaryTreeNode(2, left=5, right=6)
-5 | BinaryTreeNode(5, left=None, right=None)
-6 | BinaryTreeNode(6, left=None, right=None)
+0 1 3 4 2 5 6 
 # Inorder
-3 | BinaryTreeNode(3, left=None, right=None)
-1 | BinaryTreeNode(1, left=3, right=4)
-4 | BinaryTreeNode(4, left=None, right=None)
-0 | BinaryTreeNode(0, left=1, right=2)
-5 | BinaryTreeNode(5, left=None, right=None)
-2 | BinaryTreeNode(2, left=5, right=6)
-6 | BinaryTreeNode(6, left=None, right=None)
+3 1 4 0 5 2 6
 # Postorder
-3 | BinaryTreeNode(3, left=None, right=None)
-4 | BinaryTreeNode(4, left=None, right=None)
-1 | BinaryTreeNode(1, left=3, right=4)
-5 | BinaryTreeNode(5, left=None, right=None)
-6 | BinaryTreeNode(6, left=None, right=None)
-2 | BinaryTreeNode(2, left=5, right=6)
-0 | BinaryTreeNode(0, left=1, right=2)
+3 4 1 5 6 2 0 
 ```
 
 ### Check binary tree properties
