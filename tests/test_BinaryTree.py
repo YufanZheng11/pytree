@@ -12,7 +12,7 @@ TEST_TREE_STR = '\n'.join(line for line in """
 """.split('\n') if line.strip())
 
 
-class TestStringMethods(unittest.TestCase):
+class TestBinaryTree(unittest.TestCase):
 
     def setUp(self):
         a, b, c, d, e, f, g = (BinaryTreeNode(i) for i in range(7))
