@@ -15,6 +15,7 @@
 
 ### Sample Usage 
 Click **[Here](docs/BinaryTree.md)** for **Full Binary Tree Doc & Code Snippets**
+
 **Construct a binary Tree**
 ```python
 from tree.BinaryTree import BinaryTree
