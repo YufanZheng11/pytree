@@ -1,15 +1,7 @@
 # pytree - A Rich Tree API Implemented in Python
-<!-- TOC start -->
-- [Binary Tree API](#binary-tree-api)
-  * [Build a binary tree](#build-a-binary-tree)
-  * [Traversal a binary tree](#traversal-a-binary-tree)
-  * [Check binary tree properties](#check-binary-tree-properties)
-  * [Build binary tree from traversal orders](#build-binary-tree-from-traversal-orders)
-<!-- TOC end -->
-<!-- TOC --><a name="binary-tree-api"></a>
+
 ## Binary Tree API
 
-<!-- TOC --><a name="build-a-binary-tree"></a>
 ### Build a binary tree
 ```python
 from tree.BinaryTree import BinaryTree
@@ -21,9 +13,12 @@ b.left, b.right = d, e
 c.left, c.right = f, g
 
 tree = BinaryTree(root=a)
-tree.pprint()
 ```
 
+### Pretty print a binary tree
+```python
+tree.pprint()
+```
 ```
   _0_  
  /   \ 
@@ -32,8 +27,10 @@ tree.pprint()
 3 4 5 6
 ```
 
-<!-- TOC --><a name="traversal-a-binary-tree"></a>
 ### Traversal a binary tree
+- Pre-order
+- In-order
+- Post-order
 ```python
 for node in tree.preorder():
     print(node.val, '|', node)
@@ -69,8 +66,12 @@ for node in tree.postorder():
 0 | BinaryTreeNode(0, left=1, right=2)
 ```
 
-<!-- TOC --><a name="check-binary-tree-properties"></a>
 ### Check binary tree properties
+- Tree height
+- Is balanced
+- Number of leaves
+- Is binary search tree
+- is symmetric
 ```python
 print('Tree Height  : ', tree.height())
 print('Is Balanced  : ', tree.isBalanced())
@@ -86,7 +87,6 @@ Is BST       :  False
 Is Symmetric :  False
 ```
 
-<!-- TOC --><a name="build-binary-tree-from-traversal-orders"></a>
 ### Build binary tree from traversal orders
 ```python
 tree = BinaryTree.initFromPreorderAndInorder([1, 2, 3], [2, 1, 3])
