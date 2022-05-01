@@ -4,6 +4,31 @@ from node.BinaryTreeNode import BinaryTreeNode
 
 
 # --------------------------------------------------------------------------------------------------------------
+# Binary Tree Traversal
+# --------------------------------------------------------------------------------------------------------------
+
+def preorder(root):
+    if root:
+        yield root
+        yield from preorder(root.left)
+        yield from preorder(root.right)
+
+
+def inorder(root):
+    if root:
+        yield from inorder(root.left)
+        yield root
+        yield from inorder(root.right)
+
+
+def postorder(root):
+    if root:
+        yield from postorder(root.left)
+        yield from postorder(root.right)
+        yield root
+
+
+# --------------------------------------------------------------------------------------------------------------
 # Build Binary Tree Utils
 # --------------------------------------------------------------------------------------------------------------
 
@@ -94,7 +119,7 @@ def isBinarySearchTree(root):
             return False
         return (isBstHelper(root.left, low, root.val - 1) and
                 isBstHelper(root.right, root.val + 1, high))
-    
+
     return isBstHelper(root, float('-inf'), float('inf'))
 
 
@@ -107,6 +132,7 @@ def isSymmetric(root):
                 return (isMirror(root1.left, root2.right) and
                         isMirror(root1.right, root2.left))
         return False
+
     return isMirror(root, root)
 
 
@@ -140,34 +166,13 @@ def isSubTreeOf(subtree, tree):
     if tree is None:
         return False
 
-    # Function to store inorder traversal on the tree in a list
-    def inorder(node, vals):
-        if node is None:
-            return
-
-        inorder(node.left, vals)
-        vals.append(node.val)
-        inorder(node.right, vals)
-
-    # Function to store postorder traversal on the tree in a list
-    def postorder(node, vals):
-        if node is None:
-            return
-
-        postorder(node.left, vals)
-        postorder(node.right, vals)
-        vals.append(node.val)
-        
     # store the inorder traversal of both trees in `first` and `second`, respectively
-    first = []
-    second = []
-
-    inorder(tree, first)
-    inorder(subtree, second)
+    first = list(inorder(tree))
+    second = list(inorder(subtree))
 
     def isSubList(x, y):
         for i in range(len(x) - len(y) + 1):
-            if x[i: i + len(y)] == y:
+            if x[i:i+len(y)] == y:
                 return True
         return False
 
@@ -175,19 +180,16 @@ def isSubTreeOf(subtree, tree):
     if not isSubList(first, second):
         return False
 
-    # reset both lists
-    first.clear()
-    second.clear()
-
     # Now store postorder traversal of both trees in `first` and `second`, respectively
-    postorder(tree, first)
-    postorder(subtree, second)
+    first = list(postorder(tree))
+    second = list(postorder(subtree))
 
     # return false if the second list is not a sublist of the first list
     if not isSubList(first, second):
         return False
 
     return True
+
 
 # --------------------------------------------------------------------------------------------------------------
 #  Binary Tree Pretty Formatter
