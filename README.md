@@ -75,8 +75,8 @@ print('Is Symmetric : ', tree.isSymmetric())
 ```
 ```
 Tree Height  :  3
-Is Balanced  :  True
 Num Leaves   :  4
+Is Balanced  :  True
 Is BST       :  False
 Is Symmetric :  False
 ```
