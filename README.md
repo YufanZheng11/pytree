@@ -2,15 +2,16 @@
 
 ## Progress
 
-| Tree                                  | Status                       |
-|---------------------------------------|------------------------------|
-| [**Binary Tree**](docs/BinaryTree.md) | :white_check_mark: Completed |
-| **Binary Search Tree**                | :white_check_mark: Completed |
-| **AVL Tree (Balanced BST)**           | :white_check_mark: Completed |
-| **N Ary Tree**                        | :boom: Not Started           |
-| **Segment Tree**                      | :boom: Not Started           |
-| **Interval Tree**                     | :boom: Not Started           |
-| **Trie**                              | :boom: Not Started           |
+| Tree                                      | Status                       |
+|-------------------------------------------|------------------------------|
+| [**Binary Tree**](docs/BinaryTree.md)     | :white_check_mark: Completed |
+| **Binary Search Tree**                    | :white_check_mark: Completed |
+| **AVL Tree (Balanced BST)**               | :white_check_mark: Completed |
+| **Red Black Tree (Roughly Balanced BST)** | :white_check_mark: Completed |
+| **N Ary Tree**                            | :boom: Not Started           |
+| **Segment Tree**                          | :boom: Not Started           |
+| **Interval Tree**                         | :boom: Not Started           |
+| **Trie**                                  | :boom: Not Started           |
 
 ## Binary Tree APIs
 
