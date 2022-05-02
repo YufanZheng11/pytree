@@ -1,18 +1,18 @@
 import unittest
 
-from tree.AVLTree import AVLTree
+from tree.AvlTree import AvlTree
 
 
-class TestBinaryTree(unittest.TestCase):
+class TestAvlTree(unittest.TestCase):
 
     def test_insert(self):
-        tree = AVLTree()
+        tree = AvlTree()
         for i in range(15):
             tree.insert(i)
         tree.pprint()
 
     def test_delete(self):
-        tree = AVLTree()
+        tree = AvlTree()
         for i in range(21):
             tree.insert(i)
         tree.delete(15)

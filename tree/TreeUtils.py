@@ -1,7 +1,7 @@
 from collections import Counter
 
 from node.BinaryTreeNode import BinaryTreeNode
-from node.AVLTreeNode import AVLTreeNode
+from node.AvlTreeNode import AvlTreeNode
 
 
 # --------------------------------------------------------------------------------------------------------------
@@ -347,9 +347,20 @@ def _minBstValueNode(node):
 #  AVL Tree Build/Add/Delete/Search
 # --------------------------------------------------------------------------------------------------------------
 
+def initAvlFromSortedArray(arr):
+    """ Init an AVLh tree from sorted array """
+    if not arr:
+        return None
+    mid = (len(arr)) / 2
+    root = AvlTreeNode(arr[mid])
+    root.left = initBstFromSortedArray(arr[:mid])
+    root.right = initBstFromSortedArray(arr[mid + 1:])
+    return root
+
+
 def insertAvlVal(root, val):
     if root is None:
-        return AVLTreeNode(val)
+        return AvlTreeNode(val)
     elif val <= root.val:
         root.left = insertAvlVal(root.left, val)
     elif val > root.val:
