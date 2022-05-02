@@ -69,6 +69,28 @@ class TestBinaryTree(unittest.TestCase):
             paths.append('->'.join(str(node.val) for node in path))
         self.assertEqual(paths, ['0->2->6->3'])
 
+    def test_pathBetweenNodes(self):
+        a, b, c, d, e, f, g = (BinaryTreeNode(i) for i in range(7))
+        a.left, a.right = b, c
+        b.left, b.right = d, e
+        c.left, c.right = f, g
+
+        tree = BinaryTree(root=a)
+        path = tree.pathBetweenNodes(d, g)
+        self.assertEqual([node.val for node in path], [3, 1, 0, 2, 6])
+
+        path = tree.pathBetweenNodes(a, g)
+        self.assertEqual([node.val for node in path], [0, 2, 6])
+
+        path = tree.pathBetweenNodes(a, a)
+        self.assertEqual([node.val for node in path], [0])
+
+        path = tree.pathBetweenNodes(b, b)
+        self.assertEqual([node.val for node in path], [1])
+
+        path = tree.pathBetweenNodes(b, a)
+        self.assertEqual([node.val for node in path], [1, 0])
+
 
 if __name__ == '__main__':
     unittest.main()

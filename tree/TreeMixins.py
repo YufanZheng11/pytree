@@ -1,6 +1,6 @@
 from tree.TreeUtils import (
     preorder, inorder, postorder, getBinaryTreeHeight, isBinaryTreeBalanced, getNumberLeaves, isSameTree, isSubTreeOf,
-    pathToNode
+    pathToNode, pathBetweenNodes
 )
 
 
@@ -47,3 +47,7 @@ class BinaryTreePathMixin:
     def pathToNode(self, nodeOrVal):
         """ Find all paths from root to a node with given node or val """
         yield from pathToNode(self.root, nodeOrVal)
+
+    def pathBetweenNodes(self, nodeA, nodeB):
+        """ Find node from node a to b """
+        return pathBetweenNodes(self.root, nodeA, nodeB)

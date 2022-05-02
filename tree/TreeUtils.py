@@ -205,6 +205,22 @@ def pathToNode(root, nodeOrVal):
             yield [root] + path
 
 
+def pathBetweenNodes(root, nodeA, nodeB):
+    if not isinstance(nodeA, BinaryTreeNode) or not isinstance(nodeB, BinaryTreeNode):
+        raise ValueError('NodeA and NodeB must be of type BinaryTreeNode')
+    for pathA in pathToNode(root, nodeA):
+        for pathB in pathToNode(root, nodeB):
+            for i, (a, b) in enumerate(zip(pathA, pathB)):
+                if a != b:
+                    return pathA[i - 1:][::-1] + pathB[i:]
+            la, lb = len(pathA), len(pathB)
+            if la < lb:
+                return pathB[la-1:lb]
+            else:
+                return pathA[lb-1:la][::-1]
+    raise ValueError('nodeA {} or nodeB {} not in tree'.format(nodeA, nodeB))
+
+
 # --------------------------------------------------------------------------------------------------------------
 #  Binary Tree Pretty Formatter
 # --------------------------------------------------------------------------------------------------------------

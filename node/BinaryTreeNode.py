@@ -6,8 +6,4 @@ class BinaryTreeNode(object):
         self.right = right
 
     def __repr__(self):
-        return "BinaryTreeNode({}, left={}, right={})".format(
-            self.val,
-            self.left.val if self.left else None,
-            self.right.val if self.right else None,
-        )
+        return "<BinaryTreeNode val={}>".format(self.val)

@@ -119,7 +119,8 @@ tree.pprint()
 ```
 
 ### Find binary tree path
-- Find all paths from root to node
+- Find all paths from root to node or nodes which have val
+- Find path between 2 nodes
 ```python
 from tree.BinaryTree import BinaryTree
 from node.BinaryTreeNode import BinaryTreeNode
@@ -139,6 +140,9 @@ for path in tree.pathToNode(3):
 
 for path in tree.pathToNode(h):
     print('->'.join(str(node.val) for node in path))
+
+pathBetweenBAndG = tree.pathBetweenNodes(b, g)
+print('->'.join(str(node.val) for node in pathBetweenBAndG))
 ```
 ```
 # All path to node with given value 3
@@ -146,4 +150,6 @@ for path in tree.pathToNode(h):
 0->2->6->3
 # All path to node with given node h
 0->2->6->3
+# Path between node b and node g
+1->0->2->6
 ```
