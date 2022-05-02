@@ -1,6 +1,7 @@
 from collections import Counter
 
 from node.BinaryTreeNode import BinaryTreeNode
+from node.AVLTreeNode import AVLTreeNode
 
 
 # --------------------------------------------------------------------------------------------------------------
@@ -172,7 +173,7 @@ def isSubTreeOf(subtree, tree):
 
     def isSubList(x, y):
         for i in range(len(x) - len(y) + 1):
-            if x[i:i+len(y)] == y:
+            if x[i:i + len(y)] == y:
                 return True
         return False
 
@@ -215,9 +216,9 @@ def pathBetweenNodes(root, nodeA, nodeB):
                     return pathA[i - 1:][::-1] + pathB[i:]
             la, lb = len(pathA), len(pathB)
             if la < lb:
-                return pathB[la-1:lb]
+                return pathB[la - 1:lb]
             else:
-                return pathA[lb-1:la][::-1]
+                return pathA[lb - 1:la][::-1]
     raise ValueError('nodeA {} or nodeB {} not in tree'.format(nodeA, nodeB))
 
 
@@ -313,22 +314,14 @@ def searchBstVal(root, val):
     return searchBstVal(root.left, val)
 
 
-def minBstValueNode(node):
-    """ Find min value node from binary search tree """
-    current = node
-    while current.left is not None:
-        current = current.left
-    return current
-
-
-def deleteBstNode(root, val):
+def deleteBstVal(root, val):
     """ Delete a node from binary search tree """
     if root is None:
         return root
     if val < root.val:
-        root.left = deleteBstNode(root.left, val)
+        root.left = deleteBstVal(root.left, val)
     elif val > root.val:
-        root.right = deleteBstNode(root.right, val)
+        root.right = deleteBstVal(root.right, val)
     else:
         if root.left is None:
             temp = root.right
@@ -336,7 +329,116 @@ def deleteBstNode(root, val):
         elif root.right is None:
             temp = root.left
             return temp
-        temp = minBstValueNode(root.right)
+        temp = _minBstValueNode(root.right)
         root.val = temp.val
-        root.right = deleteBstNode(root.right, temp.val)
+        root.right = deleteBstVal(root.right, temp.val)
     return root
+
+
+def _minBstValueNode(node):
+    """ Find min value node from binary search tree """
+    current = node
+    while current.left is not None:
+        current = current.left
+    return current
+
+
+# --------------------------------------------------------------------------------------------------------------
+#  AVL Tree Build/Add/Delete/Search
+# --------------------------------------------------------------------------------------------------------------
+
+def insertAvlVal(root, val):
+    if root is None:
+        return AVLTreeNode(val)
+    elif val <= root.val:
+        root.left = insertAvlVal(root.left, val)
+    elif val > root.val:
+        root.right = insertAvlVal(root.right, val)
+    root.height = 1 + max(_avlHeight(root.left), _avlHeight(root.right))
+    balance = _avlBalance(root)
+    if balance > 1 and root.left.val > val:
+        return _avlRotateRight(root)
+    if balance < -1 and val > root.right.val:
+        return _avlRotateLeft(root)
+    if balance > 1 and val > root.left.val:
+        root.left = _avlRotateLeft(root.left)
+        return _avlRotateRight(root)
+    if balance < -1 and val < root.right.val:
+        root.right = _avlRotateRight(root.right)
+        return _avlRotateLeft(root)
+    return root
+
+
+def deleteAvlVal(node, val):
+    if node is None:
+        return node
+    elif val < node.val:
+        node.left = deleteAvlVal(node.left, val)
+    elif val > node.val:
+        node.right = deleteAvlVal(node.right, val)
+    else:
+        if node.left is None:
+            lt = node.right
+            return lt
+        elif node.right is None:
+            lt = node.left
+            return lt
+        rgt = _minAvlValueNode(node.right)
+        node.val = rgt.val
+        node.right = deleteAvlVal(node.right, rgt.val)
+    if node is None:
+        return node
+    node.height = 1 + max(_avlHeight(node.left), _avlHeight(node.right))
+    balance = _avlBalance(node)
+    if balance > 1 and _avlBalance(node.left) >= 0:
+        return _avlRotateRight(node)
+    if balance < -1 and _avlBalance(node.right) <= 0:
+        return _avlRotateLeft(node)
+    if balance > 1 and _avlBalance(node.left) < 0:
+        node.left = _avlRotateLeft(node.left)
+        return _avlRotateRight(node)
+    if balance < -1 and _avlBalance(node.right) > 0:
+        node.right = _avlRotateRight(node.right)
+        return _avlRotateLeft(node)
+    return node
+
+
+def _avlHeight(node):
+    if node is None:
+        return 0
+    else:
+        return node.height
+
+
+def _avlBalance(node):
+    if node is None:
+        return 0
+    else:
+        return _avlHeight(node.left) - _avlHeight(node.right)
+
+
+def _minAvlValueNode(node):
+    if node is None or node.left is None:
+        return node
+    else:
+        return _minAvlValueNode(node.left)
+
+
+def _avlRotateRight(node):
+    a = node.left
+    b = a.right
+    a.right = node
+    node.left = b
+    node.height = 1 + max(_avlHeight(node.left), _avlHeight(node.right))
+    a.height = 1 + max(_avlHeight(a.left), _avlHeight(a.right))
+    return a
+
+
+def _avlRotateLeft(node):
+    a = node.right
+    b = a.left
+    a.left = node
+    node.right = b
+    node.height = 1 + max(_avlHeight(node.left), _avlHeight(node.right))
+    a.height = 1 + max(_avlHeight(a.left), _avlHeight(a.right))
+    return a

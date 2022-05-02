@@ -1,5 +1,5 @@
 from node.BinaryTreeNode import BinaryTreeNode
-from tree.TreeUtils import prettyBinaryTree, isBinarySearchTree, initBstFromSortedArray, insertBstVal, searchBstVal, deleteBstNode
+from tree.TreeUtils import prettyBinaryTree, isBinarySearchTree, initBstFromSortedArray, insertBstVal, searchBstVal, deleteBstVal
 from tree.TreeMixins import BinaryTreeTraversalMixin, BinaryTreePropertiesMixin, BinaryTreeCompareMixin, BinaryTreePathMixin
 
 
@@ -35,4 +35,4 @@ class BinarySearchTree(BinaryTreeTraversalMixin, BinaryTreePropertiesMixin, Bina
 
     def delete(self, val):
         """ Delete a val into binary search tree """
-        self.root = deleteBstNode(self.root, val)
+        self.root = deleteBstVal(self.root, val)
