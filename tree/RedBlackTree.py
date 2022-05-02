@@ -3,7 +3,7 @@ from node.RedBlackNode import RedBlackTreeNode
 from tree.TreeMixins import BinaryTreeTraversalMixin, BinaryTreePropertiesMixin, BinaryTreeCompareMixin, BinaryTreePathMixin
 from tree.TreeUtils import prettyBinaryTree
 
-NULL = RedBlackTreeNode(0)
+NULL = RedBlackTreeNode('NULL')
 NULL.color = 0
 
 
