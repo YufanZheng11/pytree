@@ -79,26 +79,6 @@ def _validateTraversalInputs(order1, order2):
         raise ValueError('Inputs must not contain duplicate values')
 
 
-def initFromSortedArray(arr):
-    if not arr:
-        return None
-
-    # find middle
-    mid = (len(arr)) / 2
-
-    # make the middle element the root
-    root = BinaryTreeNode(arr[mid])
-
-    # left subtree of root has all
-    # values <arr[mid]
-    root.left = initFromSortedArray(arr[:mid])
-
-    # right subtree of root has all
-    # values >arr[mid]
-    root.right = initFromSortedArray(arr[mid + 1:])
-    return root
-
-
 # --------------------------------------------------------------------------------------------------------------
 #  Binary Tree Metrics
 # --------------------------------------------------------------------------------------------------------------
@@ -293,3 +273,70 @@ def prettyBinaryTree(root, val="val", left="left", right="right"):
 
     lines, *_ = display(root, val, left, right)
     return '\n'.join(lines)
+
+
+# --------------------------------------------------------------------------------------------------------------
+#  Binary Search Tree Build/Add/Delete/Search
+# --------------------------------------------------------------------------------------------------------------
+
+def initBstFromSortedArray(arr):
+    """ Init a binary search tree from sorted array """
+    if not arr:
+        return None
+    mid = (len(arr)) / 2
+    root = BinaryTreeNode(arr[mid])
+    root.left = initBstFromSortedArray(arr[:mid])
+    root.right = initBstFromSortedArray(arr[mid + 1:])
+    return root
+
+
+def insertBstVal(root, val):
+    """ Insert value to binary search tree """
+    if root is None:
+        return BinaryTreeNode(val)
+    else:
+        if root.val == val:
+            return root
+        elif root.val < val:
+            root.right = insertBstVal(root.right, val)
+        else:
+            root.left = insertBstVal(root.left, val)
+    return root
+
+
+def searchBstVal(root, val):
+    """ A utility function to search a given val in BST """
+    if root is None or root.val == val:
+        return root
+    if root.val < val:
+        return searchBstVal(root.right, val)
+    return searchBstVal(root.left, val)
+
+
+def minBstValueNode(node):
+    """ Find min value node from binary search tree """
+    current = node
+    while current.left is not None:
+        current = current.left
+    return current
+
+
+def deleteBstNode(root, val):
+    """ Delete a node from binary search tree """
+    if root is None:
+        return root
+    if val < root.val:
+        root.left = deleteBstNode(root.left, val)
+    elif val > root.val:
+        root.right = deleteBstNode(root.right, val)
+    else:
+        if root.left is None:
+            temp = root.right
+            return temp
+        elif root.right is None:
+            temp = root.left
+            return temp
+        temp = minBstValueNode(root.right)
+        root.val = temp.val
+        root.right = deleteBstNode(root.right, temp.val)
+    return root

@@ -4,8 +4,8 @@
 
 | Tree                                  | Status             |
 |---------------------------------------|--------------------|
-| [**Binary Tree**](docs/BinaryTree.md) | :fire: In Progress |
-| **Binary Search Tree**                | :boom: Not Started |
+| [**Binary Tree**](docs/BinaryTree.md) | :white_check_mark: Completed   |
+| **Binary Search Tree**                | :fire: In Progress |
 | **N Ary Tree**                        | :boom: Not Started |
 | **Segment Tree**                      | :boom: Not Started |
 | **Interval Tree**                     | :boom: Not Started |
