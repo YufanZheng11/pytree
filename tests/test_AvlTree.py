@@ -19,3 +19,15 @@ class TestAvlTree(unittest.TestCase):
         tree.delete(1)
         tree.delete(20)
         tree.pprint()
+
+    def test_search(self):
+        tree = AvlTree()
+        for i in range(21):
+            tree.insert(i)
+        self.assertIsNotNone(tree.search(10))
+        self.assertIsNotNone(tree.search(5))
+        self.assertIsNone(tree.search(50))
+
+
+if __name__ == '__main__':
+    unittest.main()
