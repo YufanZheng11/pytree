@@ -358,7 +358,17 @@ def initAvlFromSortedArray(arr):
     return root
 
 
+def searchAvlVal(root, val):
+    """ A utility function to search a given val in AVL Tree """
+    if root is None or root.val == val:
+        return root
+    if root.val < val:
+        return searchAvlVal(root.right, val)
+    return searchAvlVal(root.left, val)
+
+
 def insertAvlVal(root, val):
+    """ Insert a value to AVL Tree """
     if root is None:
         return AvlTreeNode(val)
     elif val <= root.val:
@@ -381,6 +391,7 @@ def insertAvlVal(root, val):
 
 
 def deleteAvlVal(node, val):
+    """ Delete a value from AVL Tree """
     if node is None:
         return node
     elif val < node.val:

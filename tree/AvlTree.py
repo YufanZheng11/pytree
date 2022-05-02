@@ -1,6 +1,6 @@
 from node.AvlTreeNode import AvlTreeNode
 from tree.TreeMixins import BinaryTreeTraversalMixin, BinaryTreePropertiesMixin, BinaryTreeCompareMixin, BinaryTreePathMixin
-from tree.TreeUtils import prettyBinaryTree, isBinarySearchTree, insertAvlVal, deleteAvlVal, initAvlFromSortedArray
+from tree.TreeUtils import prettyBinaryTree, isBinarySearchTree, insertAvlVal, deleteAvlVal, initAvlFromSortedArray, searchAvlVal
 
 
 class AvlTree(BinaryTreeTraversalMixin, BinaryTreePropertiesMixin, BinaryTreeCompareMixin, BinaryTreePathMixin):
@@ -30,3 +30,6 @@ class AvlTree(BinaryTreeTraversalMixin, BinaryTreePropertiesMixin, BinaryTreeCom
 
     def delete(self, val):
         self.root = deleteAvlVal(self.root, val)
+
+    def search(self, val):
+        return searchAvlVal(self.root, val)
