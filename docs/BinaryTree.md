@@ -51,7 +51,7 @@ for node in tree.postorder():
 - Number of leaves
 - Is balanced
 - Is binary search tree
-- is symmetric
+- Is symmetric
 
 ```python
 print('Tree Height   : ', tree.getHeight())
