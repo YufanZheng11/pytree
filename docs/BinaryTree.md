@@ -136,9 +136,14 @@ tree = BinaryTree(root=a)
 
 for path in tree.pathToNode(3):
     print('->'.join(str(node.val) for node in path))
+
+for path in tree.pathToNode(h):
+    print('->'.join(str(node.val) for node in path))
 ```
 ```
 # All path to node with given value 3
 0->1->3
+0->2->6->3
+# All path to node with given node h
 0->2->6->3
 ```

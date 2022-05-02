@@ -44,6 +44,6 @@ class BinaryTreeCompareMixin:
 
 
 class BinaryTreePathMixin:
-    def pathToNode(self, val):
-        """ Find all paths from root to a node with given node val """
-        yield from pathToNode(self.root, val)
+    def pathToNode(self, nodeOrVal):
+        """ Find all paths from root to a node with given node or val """
+        yield from pathToNode(self.root, nodeOrVal)

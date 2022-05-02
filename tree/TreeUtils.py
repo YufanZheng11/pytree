@@ -195,13 +195,13 @@ def isSubTreeOf(subtree, tree):
 #  Binary Tree Path Utils
 # --------------------------------------------------------------------------------------------------------------
 
-def pathToNode(root, val):
+def pathToNode(root, nodeOrVal):
     if root:
-        if root.val == val:
+        if root == nodeOrVal or root.val == nodeOrVal:
             yield [root]
-        for path in pathToNode(root.left, val):
+        for path in pathToNode(root.left, nodeOrVal):
             yield [root] + path
-        for path in pathToNode(root.right, val):
+        for path in pathToNode(root.right, nodeOrVal):
             yield [root] + path
 
 

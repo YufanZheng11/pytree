@@ -64,6 +64,11 @@ class TestBinaryTree(unittest.TestCase):
         paths.sort()
         self.assertEqual(paths, ['0->1->3', '0->2->6->3'])
 
+        paths = []
+        for path in tree.pathToNode(h):
+            paths.append('->'.join(str(node.val) for node in path))
+        self.assertEqual(paths, ['0->2->6->3'])
+
 
 if __name__ == '__main__':
     unittest.main()
