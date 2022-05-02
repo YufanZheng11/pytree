@@ -79,6 +79,26 @@ def _validateTraversalInputs(order1, order2):
         raise ValueError('Inputs must not contain duplicate values')
 
 
+def initFromSortedArray(arr):
+    if not arr:
+        return None
+
+    # find middle
+    mid = (len(arr)) / 2
+
+    # make the middle element the root
+    root = BinaryTreeNode(arr[mid])
+
+    # left subtree of root has all
+    # values <arr[mid]
+    root.left = initFromSortedArray(arr[:mid])
+
+    # right subtree of root has all
+    # values >arr[mid]
+    root.right = initFromSortedArray(arr[mid + 1:])
+    return root
+
+
 # --------------------------------------------------------------------------------------------------------------
 #  Binary Tree Metrics
 # --------------------------------------------------------------------------------------------------------------
