@@ -5,7 +5,7 @@
 | Tree                                               | Status                       |
 |----------------------------------------------------|------------------------------|
 | [**Binary Tree**](docs/BinaryTree.md)              | :white_check_mark: Completed |
-| **Binary Search Tree**                             | :white_check_mark: Completed |
+| **Binary Search Tree (Fast but not Balanced)**     | :white_check_mark: Completed |
 | **AVL Tree (Strictly Balanced BST but Slow)**      | :white_check_mark: Completed |
 | **Red Black Tree (Roughly Balanced BST but Fast)** | :white_check_mark: Completed |
 | **N Ary Tree**                                     | :boom: Not Started           |
