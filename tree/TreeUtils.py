@@ -277,73 +277,6 @@ def prettyBinaryTree(root, val="val", left="left", right="right"):
 
 
 # --------------------------------------------------------------------------------------------------------------
-#  Binary Search Tree Build/Add/Delete/Search
-# --------------------------------------------------------------------------------------------------------------
-
-def initBstFromSortedArray(arr):
-    """ Init a binary search tree from sorted array """
-    if not arr:
-        return None
-    mid = (len(arr)) / 2
-    root = BinaryTreeNode(arr[mid])
-    root.left = initBstFromSortedArray(arr[:mid])
-    root.right = initBstFromSortedArray(arr[mid + 1:])
-    return root
-
-
-def insertBstVal(root, val):
-    """ Insert value to binary search tree """
-    if root is None:
-        return BinaryTreeNode(val)
-    else:
-        if root.val == val:
-            return root
-        elif root.val < val:
-            root.right = insertBstVal(root.right, val)
-        else:
-            root.left = insertBstVal(root.left, val)
-    return root
-
-
-def searchBstVal(root, val):
-    """ A utility function to search a given val in BST """
-    if root is None or root.val == val:
-        return root
-    if root.val < val:
-        return searchBstVal(root.right, val)
-    return searchBstVal(root.left, val)
-
-
-def deleteBstVal(root, val):
-    """ Delete a node from binary search tree """
-    if root is None:
-        return root
-    if val < root.val:
-        root.left = deleteBstVal(root.left, val)
-    elif val > root.val:
-        root.right = deleteBstVal(root.right, val)
-    else:
-        if root.left is None:
-            temp = root.right
-            return temp
-        elif root.right is None:
-            temp = root.left
-            return temp
-        temp = _minBstValueNode(root.right)
-        root.val = temp.val
-        root.right = deleteBstVal(root.right, temp.val)
-    return root
-
-
-def _minBstValueNode(node):
-    """ Find min value node from binary search tree """
-    current = node
-    while current.left is not None:
-        current = current.left
-    return current
-
-
-# --------------------------------------------------------------------------------------------------------------
 #  AVL Tree Build/Add/Delete/Search
 # --------------------------------------------------------------------------------------------------------------
 
@@ -353,8 +286,8 @@ def initAvlFromSortedArray(arr):
         return None
     mid = (len(arr)) / 2
     root = AvlTreeNode(arr[mid])
-    root.left = initBstFromSortedArray(arr[:mid])
-    root.right = initBstFromSortedArray(arr[mid + 1:])
+    root.left = initAvlFromSortedArray(arr[:mid])
+    root.right = initAvlFromSortedArray(arr[mid + 1:])
     return root
 
 
