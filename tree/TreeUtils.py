@@ -1,32 +1,6 @@
 from collections import Counter
 
 from node.BinaryTreeNode import BinaryTreeNode
-from node.AvlTreeNode import AvlTreeNode
-
-
-# --------------------------------------------------------------------------------------------------------------
-# Binary Tree Traversal
-# --------------------------------------------------------------------------------------------------------------
-
-def preorder(root):
-    if root:
-        yield root
-        yield from preorder(root.left)
-        yield from preorder(root.right)
-
-
-def inorder(root):
-    if root:
-        yield from inorder(root.left)
-        yield root
-        yield from inorder(root.right)
-
-
-def postorder(root):
-    if root:
-        yield from postorder(root.left)
-        yield from postorder(root.right)
-        yield root
 
 
 # --------------------------------------------------------------------------------------------------------------
