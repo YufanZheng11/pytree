@@ -4,6 +4,31 @@ from node.BinaryTreeNode import BinaryTreeNode
 
 
 # --------------------------------------------------------------------------------------------------------------
+# Binary Tree Traversal
+# --------------------------------------------------------------------------------------------------------------
+
+def preorder(root):
+    if root:
+        yield root
+        yield from preorder(root.left)
+        yield from preorder(root.right)
+
+
+def inorder(root):
+    if root:
+        yield from inorder(root.left)
+        yield root
+        yield from inorder(root.right)
+
+
+def postorder(root):
+    if root:
+        yield from postorder(root.left)
+        yield from postorder(root.right)
+        yield root
+
+
+# --------------------------------------------------------------------------------------------------------------
 # Build Binary Tree Utils
 # --------------------------------------------------------------------------------------------------------------
 

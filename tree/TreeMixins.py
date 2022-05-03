@@ -1,5 +1,6 @@
 from tree.TreeUtils import (
-    getBinaryTreeHeight, isBinaryTreeBalanced, getNumberLeaves, isSameTree, isSubTreeOf, pathToNode, pathBetweenNodes
+    preorder, inorder, postorder, getBinaryTreeHeight, isBinaryTreeBalanced, getNumberLeaves, isSameTree, isSubTreeOf,
+    pathToNode, pathBetweenNodes
 )
 
 
@@ -7,30 +8,14 @@ class BinaryTreeTraversalMixin:
 
     def preorder(self):
         """ Preorder Visit """
-        def preorder(root):
-            if root:
-                yield root
-                yield from preorder(root.left)
-                yield from preorder(root.right)
-
         yield from preorder(self.root)
 
     def inorder(self):
         """ Inorder Visit """
-        def inorder(root):
-            if root:
-                yield from inorder(root.left)
-                yield root
-                yield from inorder(root.right)
         yield from inorder(self.root)
 
     def postorder(self):
         """ Postorder Visit """
-        def postorder(root):
-            if root:
-                yield from postorder(root.left)
-                yield from postorder(root.right)
-                yield root
         yield from postorder(self.root)
 
 
